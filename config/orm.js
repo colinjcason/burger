@@ -34,7 +34,7 @@ var orm = {
         });
     },
 
-    updateOne: function()
+    updateOne: function();
 }
 
 module.exports = orm;
