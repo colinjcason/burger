@@ -1,4 +1,4 @@
-var connection = require("/connection.js");
+var connection = require("./connection.js");
 
 function printQuestionMarks(num) {
     var arr = [];
@@ -11,11 +11,12 @@ function printQuestionMarks(num) {
   }
 
 var orm = {
-    selectAll: function(whatToSelect, tableInput) {
+    selectAll: function(whatToSelect, tableInput, cb) {
         var queryString = "SELECT ?? FROM ??";
         connection.query(queryString, [whatToSelect, tableInput], function(err, data) {
             if(err) throw err;
             console.log(result);
+            cb(result);
         });
     },
 
@@ -34,7 +35,7 @@ var orm = {
         });
     },
 
-    updateOne: function();
+    // updateOne: function();
 }
 
 module.exports = orm;
