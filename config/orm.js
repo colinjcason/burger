@@ -1,39 +1,26 @@
 var connection = require("./connection.js");
 
-function printQuestionMarks(num) {
-    var arr = [];
-  
-    for (var i = 0; i < num; i++) {
-      arr.push("?");
-    }
-  
-    return arr.toString();
-  }
-
 var orm = {
-    selectAll: function(whatToSelect, tableInput, cb) {
-        var queryString = "SELECT ?? FROM ??";
-        connection.query(queryString, [whatToSelect, tableInput], function(err, data) {
-            if(err) throw err;
-            console.log(result);
-            cb(result);
-        });
-    },
+    selectAll: function(table, cb) {
+        var queryString = "SELECT * FROM burgers";
+        connection.query(queryString, [table], cb);
+            console.log(cb);
+    }
 
-    insertOne: function(table, cols, val, cb) {
-        var queryString = "INSERT INTO " + table;
-        queryString += " (" + cols.toString();
-        queryString += ") ";
-        queryString += "VALUES (";
-        queryString += printQuestionMarks(val.length) + ")";
+    // insertOne: function(table, cols, val, cb) {
+    //     var queryString = "INSERT INTO " + table;
+    //     queryString += " (" + cols.toString();
+    //     queryString += ") ";
+    //     queryString += "VALUES (";
+    //     queryString += printQuestionMarks(val.length) + ")";
 
-        console.log(queryString);
+    //     console.log(queryString);
 
-        connection.query(queryString, val, function(err, result) {
-            if(err) throw err;
-            cb(result);
-        });
-    },
+    //     connection.query(queryString, val, function(err, result) {
+    //         if(err) throw err;
+    //         cb(result);
+    //     });
+    // },
 
     // updateOne: function();
 }

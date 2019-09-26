@@ -7,15 +7,15 @@ var burger = {
         });
     },
 
-    insertOne: function(col, vals, cb) {
-        orm.insertOne("burgers", cols, vals, function(res) {
-            cb(res);
-        });
-    },
+    // insertOne: function(col, vals, cb) {
+    //     orm.insertOne("burgers", cols, vals, function(res) {
+    //         cb(res);
+    //     });
+    // },
 
-    updateOne: function() {
+    // updateOne: function() {
 
-    }
+    // }
 };
 
 
