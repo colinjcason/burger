@@ -1,10 +1,8 @@
 var orm = require("../config/orm.js");
 
 var burger = {
-    selectAll: function(cb) {
-        orm.selectAll("burgers", function(res) {
-            cb(res);
-        });
+    selectAll: function(tableName, cb) {
+        orm.selectAll(tableName, cb);
     },
 
     // insertOne: function(col, vals, cb) {

@@ -6,12 +6,19 @@ var router = express.Router();
 
 
 router.get("/", function(req, res) {
-    burger.selectAll(function(data) {
-        // var hbsObject = {
-        //     burgers: data
-        //   };
-        //   console.log(hbsObject);
-          res.render("index", {burgers: data});
+    burger.selectAll("burgers", function(err, data) {
+        if(err) throw err;
+        res.render("index", {burgers: data});
+    });
+});
+
+router.post("/api/burgers", function(req, res) {
+    burger.insertOne([
+        "burger_name", "devoured"
+    ], [
+        req.body.burger_name, req.body.devoured
+    ], function(result) {
+        res.json({ id: result.insertId });
     });
 });
 
