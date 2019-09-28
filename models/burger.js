@@ -9,8 +9,8 @@ var burger = {
         orm.insertOne(tableName, cb);
     },
 
-    updateOne: function(tableName, id, cb) {
-        orm.updateOne(tableName, id, cb);
+    updateOne: function(tableName, cb) {
+        orm.updateOne(tableName, cb);
     }
 };
 
