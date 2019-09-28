@@ -3,7 +3,8 @@
 <h2>Burgers ready to be eaten</h2>
 <ul>
     {{#each burgers}}
-        <p>{{burger_name}}</p>
+        <p>{{this.burger_name}}</p>
+        <p>{{this.devoured}}</p>
     {{/each}}
 </ul>
 

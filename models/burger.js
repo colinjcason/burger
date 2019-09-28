@@ -5,15 +5,13 @@ var burger = {
         orm.selectAll(tableName, cb);
     },
 
-    // insertOne: function(col, vals, cb) {
-    //     orm.insertOne("burgers", cols, vals, function(res) {
-    //         cb(res);
-    //     });
-    // },
+    insertOne: function(tableName, cb) {
+        orm.insertOne(tableName, cb);
+    },
 
-    // updateOne: function() {
-
-    // }
+    updateOne: function(tableName, id, cb) {
+        orm.updateOne(tableName, id, cb);
+    }
 };
 
 
