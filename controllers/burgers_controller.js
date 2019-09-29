@@ -17,7 +17,6 @@ router.post("/api/burgers", function(req, res) {
         burger_name: req.body.burger_name,
         devoured: 0
     }, function(err, result, fields) {
-        console.log(result);
         res.json({ "something": fields });
     });
 });
@@ -25,10 +24,7 @@ router.post("/api/burgers", function(req, res) {
 router.put("/api/burgers", function(req, res) {
     burger.updateOne(
         req.body.id, function(err, result) {
-        console.log(err);
-        console.log(req.body.id);
         res.json({ "something": result });
-        console.log('this worked')
     });
 });
 
