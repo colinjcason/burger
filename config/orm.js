@@ -6,7 +6,7 @@ var orm = {
         connection.query(queryString, tableName, cb);
     },
 
-    insertOne: function(table, col, name, cb) {
+    insertOne: function(tableName, col, name, cb) {
         var queryString = `INSERT INTO burgers (??) Values (?,0)`;
         connection.query(queryString, [col, name], cb);
     },
