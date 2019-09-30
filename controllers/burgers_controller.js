@@ -12,19 +12,20 @@ router.get("/", function(req, res) {
     });
 });
 
-router.post("/api/burgers", function(req, res) {
-    burger.insertOne({
-        burger_name: req.body.burger_name,
-        devoured: 0
-    }, function(err, result, fields) {
-        res.json({ "something": fields });
+router.post("/api/burgers/:name", function(req, res) {
+    burger.insertOne(req.params.name, function(err, data) {
+        if(err) throw err;
+        res.sendStatus(200);
     });
 });
 
-router.put("/api/burgers", function(req, res) {
-    burger.updateOne(
-        req.body.id, function(err, result) {
-        res.json({ "something": result });
+router.put("/api/burgers/:id", function(req, res) {
+    var col = req.body.col;
+    var val = req.body.val;
+    var id = req.params.id;
+    burger.updateOne(col, val, id, function(err, data) {
+            if(err) throw err;
+            res.sendStatus(200);
     });
 });
 

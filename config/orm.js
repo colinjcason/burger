@@ -4,18 +4,16 @@ var orm = {
     selectAll: function(tableName, cb) {
         var queryString = "SELECT * FROM ??";
         connection.query(queryString, tableName, cb);
-            console.log(cb);
     },
 
-    insertOne: function(col, cb) {
-        var queryString = "INSERT INTO burgers SET ?";
-        connection.query(queryString, col, cb);
-        console.log(cb);
+    insertOne: function(tableName, col, name, cb) {
+        var queryString = `INSERT INTO burgers (??) Values (?,0)`;
+        connection.query(queryString, [col, name], cb);
     },
 
-    updateOne: function(col, cb) {
-        var queryString = "UPDATE burgers SET devoured = 1 WHERE id = ?";
-        connection.query(queryString, col, cb);
+    updateOne: function(tableName, col, val, id, cb) {
+        var queryString = `UPDATE ${tableName} SET ${col} = '${val}' WHERE id = '${id}'`;
+        connection.query(queryString, cb);
     }
 };
 
